@@ -26,7 +26,7 @@
 // // // File load / store
 
 CBinaryFileStream::CBinaryFileStream(const fs::path &fname, std::ios_base::openmode mode) :
-	m_fFile(fname, mode)
+	m_fFile(fname.string(), mode)
 {
 }
 
@@ -36,7 +36,7 @@ CBinaryFileStream::operator bool() const
 }
 
 void CBinaryFileStream::Open(const fs::path &fname, std::ios_base::openmode mode) {
-	m_fFile.open(fname, mode);
+	m_fFile.open(fname.string(), mode);
 	if (!m_fFile)
 		throw std::runtime_error {GetErrorMessage()};
 }
@@ -57,7 +57,7 @@ std::string CBinaryFileStream::GetErrorMessage() const {
 #ifdef _MSC_VER
 	if (0 == ::strerror_s(err, errno))
 #else
-	if (0 == ::strerror_r(errno, err, std::size(err)))
+	if (0 == ::strerror_s(err, errno, std::size(err)))
 #endif
 		return err;
 

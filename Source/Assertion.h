@@ -35,7 +35,7 @@
 #      define DEBUG_BREAK() (__debugbreak())
 #    else
 #      include <csignal>
-#      define DEBUG_BREAK() (raise(SIGTRAP))
+#      define DEBUG_BREAK() (raise(SIGBREAK))
 #    endif
 #  else
 #    define DEBUG_BREAK() ((void)0)
