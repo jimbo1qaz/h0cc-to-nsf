@@ -231,3 +231,7 @@ endif()
 add_executable(ft0cc-test testMain.cpp)
 target_include_directories(ft0cc-test PRIVATE ${FT0CC_ROOT} ${LIBFT0CC_ROOT}/include)
 target_link_libraries(ft0cc-test PRIVATE ft0cc stdc++fs)
+
+add_executable(0cc-to-nsf 0cc-to-nsf.cpp)
+target_include_directories(0cc-to-nsf PRIVATE ${FT0CC_ROOT} ${LIBFT0CC_ROOT}/include)
+target_link_libraries(0cc-to-nsf PRIVATE ft0cc stdc++fs)
