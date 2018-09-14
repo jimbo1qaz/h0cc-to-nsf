@@ -48,8 +48,8 @@ set(SRCS
 #	${FT0CC_ROOT}/ArrayStream.cpp
 #	${FT0CC_ROOT}/AudioDriver.cpp
 	${FT0CC_ROOT}/BinaryFileStream.cpp
-	${FT0CC_ROOT}/Bookmark.cpp	# FIXME
-	${FT0CC_ROOT}/BookmarkCollection.cpp	# FIXME
+	${FT0CC_ROOT}/Bookmark.cpp
+	${FT0CC_ROOT}/BookmarkCollection.cpp
 #	${FT0CC_ROOT}/BookmarkDlg.cpp
 	${FT0CC_ROOT}/ChannelHandler.cpp
 	${FT0CC_ROOT}/ChannelMap.cpp
