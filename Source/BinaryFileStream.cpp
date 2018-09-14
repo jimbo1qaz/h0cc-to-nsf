@@ -57,7 +57,7 @@ std::string CBinaryFileStream::GetErrorMessage() const {
 #ifdef _MSC_VER
 	if (0 == ::strerror_s(err, errno))
 #else
-	if (0 == ::strerror_s(err, errno, std::size(err)))
+	if (0 == ::strerror_r(errno, err, std::size(err)))
 #endif
 		return err;
 
