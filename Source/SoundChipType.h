@@ -44,8 +44,10 @@ public:
 	virtual std::string_view GetChannelShortName(std::size_t subindex) const = 0;
 	virtual std::string_view GetChannelFullName(std::size_t subindex) const = 0;
 
+#ifndef NSF_ONLY
 	virtual std::unique_ptr<CSoundChip> MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const = 0;
 	virtual std::unique_ptr<CChipHandler> MakeChipHandler(std::uint8_t nInstance) const = 0;
+#endif
 
 	virtual ft0cc::doc::effect_type TranslateEffectName(char name, sound_chip_t chip) const = 0;
 };

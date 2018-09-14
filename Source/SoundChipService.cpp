@@ -101,6 +101,7 @@ std::unique_ptr<CChannelMap> CSoundChipService::MakeChannelMap(CSoundChipSet chi
 	return map;
 }
 
+#ifndef NSF_ONLY
 std::unique_ptr<CSoundChip> CSoundChipService::MakeSoundChipDriver(sound_chip_t chip, CMixer &mixer, std::uint8_t nInstance) const {
 	return GetType(chip).MakeSoundDriver(mixer, nInstance);
 }
@@ -108,6 +109,7 @@ std::unique_ptr<CSoundChip> CSoundChipService::MakeSoundChipDriver(sound_chip_t 
 std::unique_ptr<CChipHandler> CSoundChipService::MakeChipHandler(sound_chip_t chip, std::uint8_t nInstance) const {
 	return GetType(chip).MakeChipHandler(nInstance);
 }
+#endif
 
 ft0cc::doc::effect_type CSoundChipService::TranslateEffectName(char name, sound_chip_t chip) const {
 	auto it = types_.find(chip);

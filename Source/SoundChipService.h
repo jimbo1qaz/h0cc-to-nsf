@@ -48,8 +48,10 @@ public:
 	std::string_view GetChannelFullName(stChannelID ch) const;
 
 	std::unique_ptr<CChannelMap> MakeChannelMap(CSoundChipSet chips, unsigned n163chs) const; // TODO: remove n163chs
+#ifndef NSF_ONLY
 	std::unique_ptr<CSoundChip> MakeSoundChipDriver(sound_chip_t chip, CMixer &mixer, std::uint8_t nInstance) const;
 	std::unique_ptr<CChipHandler> MakeChipHandler(sound_chip_t chip, std::uint8_t nInstance) const;
+#endif
 
 	ft0cc::doc::effect_type TranslateEffectName(char name, sound_chip_t chip) const;
 

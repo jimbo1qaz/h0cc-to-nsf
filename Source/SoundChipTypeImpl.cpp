@@ -125,6 +125,7 @@ std::string_view CSoundChipType2A03::GetChannelFullName(std::size_t subindex) co
 		throw std::invalid_argument {"Channel with given subindex does not exist"};
 }
 
+#ifndef NSF_ONLY
 std::unique_ptr<CSoundChip> CSoundChipType2A03::MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const {
 	return std::make_unique<C2A03>(mixer, nInstance);
 }
@@ -137,6 +138,7 @@ std::unique_ptr<CChipHandler> CSoundChipType2A03::MakeChipHandler(std::uint8_t n
 		.With<CNoiseChan>(apu_subindex_t::noise)
 		.With<CDPCMChan>(apu_subindex_t::dpcm);
 }
+#endif
 
 ft0cc::doc::effect_type CSoundChipType2A03::TranslateEffectName(char name, sound_chip_t chip) const {
 	for (auto fx : enum_values<ft0cc::doc::effect_type>())
@@ -181,6 +183,7 @@ std::string_view CSoundChipTypeVRC6::GetChannelFullName(std::size_t subindex) co
 		throw std::invalid_argument {"Channel with given subindex does not exist"};
 }
 
+#ifndef NSF_ONLY
 std::unique_ptr<CSoundChip> CSoundChipTypeVRC6::MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const {
 	return std::make_unique<CVRC6>(mixer, nInstance);
 }
@@ -191,6 +194,7 @@ std::unique_ptr<CChipHandler> CSoundChipTypeVRC6::MakeChipHandler(std::uint8_t n
 		.With<CVRC6Square>(vrc6_subindex_t::pulse2)
 		.With<CVRC6Sawtooth>(vrc6_subindex_t::sawtooth);
 }
+#endif
 
 ft0cc::doc::effect_type CSoundChipTypeVRC6::TranslateEffectName(char name, sound_chip_t chip) const {
 	for (auto fx : enum_values<ft0cc::doc::effect_type>())
@@ -238,6 +242,7 @@ std::string_view CSoundChipTypeVRC7::GetChannelFullName(std::size_t subindex) co
 		throw std::invalid_argument {"Channel with given subindex does not exist"};
 }
 
+#ifndef NSF_ONLY
 std::unique_ptr<CSoundChip> CSoundChipTypeVRC7::MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const {
 	return std::make_unique<CVRC7>(mixer, nInstance);
 }
@@ -251,6 +256,7 @@ std::unique_ptr<CChipHandler> CSoundChipTypeVRC7::MakeChipHandler(std::uint8_t n
 		.With<CChannelHandlerVRC7>(vrc7_subindex_t::ch5)
 		.With<CChannelHandlerVRC7>(vrc7_subindex_t::ch6);
 }
+#endif
 
 ft0cc::doc::effect_type CSoundChipTypeVRC7::TranslateEffectName(char name, sound_chip_t chip) const {
 	for (ft0cc::doc::effect_type fx : VRC7_EFFECTS)
@@ -296,6 +302,7 @@ std::string_view CSoundChipTypeFDS::GetChannelFullName(std::size_t subindex) con
 		throw std::invalid_argument {"Channel with given subindex does not exist"};
 }
 
+#ifndef NSF_ONLY
 std::unique_ptr<CSoundChip> CSoundChipTypeFDS::MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const {
 	return std::make_unique<CFDS>(mixer, nInstance);
 }
@@ -304,6 +311,7 @@ std::unique_ptr<CChipHandler> CSoundChipTypeFDS::MakeChipHandler(std::uint8_t nI
 	return CChipHandlerBuilder<CChipHandler> {nInstance, GetID()}
 		.With<CChannelHandlerFDS>(fds_subindex_t::wave);
 }
+#endif
 
 ft0cc::doc::effect_type CSoundChipTypeFDS::TranslateEffectName(char name, sound_chip_t chip) const {
 	for (ft0cc::doc::effect_type fx : FDS_EFFECTS)
@@ -351,6 +359,7 @@ std::string_view CSoundChipTypeMMC5::GetChannelFullName(std::size_t subindex) co
 		throw std::invalid_argument {"Channel with given subindex does not exist"};
 }
 
+#ifndef NSF_ONLY
 std::unique_ptr<CSoundChip> CSoundChipTypeMMC5::MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const {
 	return std::make_unique<CMMC5>(mixer, nInstance);
 }
@@ -360,6 +369,7 @@ std::unique_ptr<CChipHandler> CSoundChipTypeMMC5::MakeChipHandler(std::uint8_t n
 		.With<CChannelHandlerMMC5>(mmc5_subindex_t::pulse1)
 		.With<CChannelHandlerMMC5>(mmc5_subindex_t::pulse2);
 }
+#endif
 
 ft0cc::doc::effect_type CSoundChipTypeMMC5::TranslateEffectName(char name, sound_chip_t chip) const {
 	for (auto fx : enum_values<ft0cc::doc::effect_type>())
@@ -409,6 +419,7 @@ std::string_view CSoundChipTypeN163::GetChannelFullName(std::size_t subindex) co
 		throw std::invalid_argument {"Channel with given subindex does not exist"};
 }
 
+#ifndef NSF_ONLY
 std::unique_ptr<CSoundChip> CSoundChipTypeN163::MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const {
 	return std::make_unique<CN163>(mixer, nInstance);
 }
@@ -424,6 +435,7 @@ std::unique_ptr<CChipHandler> CSoundChipTypeN163::MakeChipHandler(std::uint8_t n
 		.With<CChannelHandlerN163>(n163_subindex_t::ch7)
 		.With<CChannelHandlerN163>(n163_subindex_t::ch8);
 }
+#endif
 
 ft0cc::doc::effect_type CSoundChipTypeN163::TranslateEffectName(char name, sound_chip_t chip) const {
 	for (ft0cc::doc::effect_type fx : N163_EFFECTS)
@@ -471,6 +483,7 @@ std::string_view CSoundChipTypeS5B::GetChannelFullName(std::size_t subindex) con
 		throw std::invalid_argument {"Channel with given subindex does not exist"};
 }
 
+#ifndef NSF_ONLY
 std::unique_ptr<CSoundChip> CSoundChipTypeS5B::MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const {
 	return std::make_unique<CS5B>(mixer, nInstance);
 }
@@ -481,6 +494,7 @@ std::unique_ptr<CChipHandler> CSoundChipTypeS5B::MakeChipHandler(std::uint8_t nI
 		.With<CChannelHandlerS5B>(s5b_subindex_t::square2)
 		.With<CChannelHandlerS5B>(s5b_subindex_t::square3);
 }
+#endif
 
 ft0cc::doc::effect_type CSoundChipTypeS5B::TranslateEffectName(char name, sound_chip_t chip) const {
 	for (ft0cc::doc::effect_type fx : S5B_EFFECTS)

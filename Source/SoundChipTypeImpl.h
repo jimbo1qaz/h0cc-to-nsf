@@ -34,8 +34,10 @@ class CSoundChipType2A03 : public CSoundChipType {
 	std::string_view GetChannelShortName(std::size_t subindex) const override;
 	std::string_view GetChannelFullName(std::size_t subindex) const override;
 
+#ifndef NSF_ONLY
 	std::unique_ptr<CSoundChip> MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const override;
 	std::unique_ptr<CChipHandler> MakeChipHandler(std::uint8_t nInstance) const override;
+#endif
 
 	ft0cc::doc::effect_type TranslateEffectName(char name, sound_chip_t chip) const override;
 };
@@ -49,8 +51,10 @@ class CSoundChipTypeVRC6 : public CSoundChipType {
 	std::string_view GetChannelShortName(std::size_t subindex) const override;
 	std::string_view GetChannelFullName(std::size_t subindex) const override;
 
+#ifndef NSF_ONLY
 	std::unique_ptr<CSoundChip> MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const override;
 	std::unique_ptr<CChipHandler> MakeChipHandler(std::uint8_t nInstance) const override;
+#endif
 
 	ft0cc::doc::effect_type TranslateEffectName(char name, sound_chip_t chip) const override;
 };
@@ -64,8 +68,10 @@ class CSoundChipTypeVRC7 : public CSoundChipType {
 	std::string_view GetChannelShortName(std::size_t subindex) const override;
 	std::string_view GetChannelFullName(std::size_t subindex) const override;
 
+#ifndef NSF_ONLY
 	std::unique_ptr<CSoundChip> MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const override;
 	std::unique_ptr<CChipHandler> MakeChipHandler(std::uint8_t nInstance) const override;
+#endif
 
 	ft0cc::doc::effect_type TranslateEffectName(char name, sound_chip_t chip) const override;
 };
@@ -79,8 +85,10 @@ class CSoundChipTypeFDS : public CSoundChipType {
 	std::string_view GetChannelShortName(std::size_t subindex) const override;
 	std::string_view GetChannelFullName(std::size_t subindex) const override;
 
+#ifndef NSF_ONLY
 	std::unique_ptr<CSoundChip> MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const override;
 	std::unique_ptr<CChipHandler> MakeChipHandler(std::uint8_t nInstance) const override;
+#endif
 
 	ft0cc::doc::effect_type TranslateEffectName(char name, sound_chip_t chip) const override;
 };
@@ -94,8 +102,10 @@ class CSoundChipTypeMMC5 : public CSoundChipType {
 	std::string_view GetChannelShortName(std::size_t subindex) const override;
 	std::string_view GetChannelFullName(std::size_t subindex) const override;
 
+#ifndef NSF_ONLY
 	std::unique_ptr<CSoundChip> MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const override;
 	std::unique_ptr<CChipHandler> MakeChipHandler(std::uint8_t nInstance) const override;
+#endif
 
 	ft0cc::doc::effect_type TranslateEffectName(char name, sound_chip_t chip) const override;
 };
@@ -109,8 +119,10 @@ class CSoundChipTypeN163 : public CSoundChipType {
 	std::string_view GetChannelShortName(std::size_t subindex) const override;
 	std::string_view GetChannelFullName(std::size_t subindex) const override;
 
+#ifndef NSF_ONLY
 	std::unique_ptr<CSoundChip> MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const override;
 	std::unique_ptr<CChipHandler> MakeChipHandler(std::uint8_t nInstance) const override;
+#endif
 
 	ft0cc::doc::effect_type TranslateEffectName(char name, sound_chip_t chip) const override;
 };
@@ -124,8 +136,10 @@ class CSoundChipTypeS5B : public CSoundChipType {
 	std::string_view GetChannelShortName(std::size_t subindex) const override;
 	std::string_view GetChannelFullName(std::size_t subindex) const override;
 
+#ifndef NSF_ONLY
 	std::unique_ptr<CSoundChip> MakeSoundDriver(CMixer &mixer, std::uint8_t nInstance) const override;
 	std::unique_ptr<CChipHandler> MakeChipHandler(std::uint8_t nInstance) const override;
+#endif
 
 	ft0cc::doc::effect_type TranslateEffectName(char name, sound_chip_t chip) const override;
 };
