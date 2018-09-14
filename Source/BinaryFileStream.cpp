@@ -49,6 +49,14 @@ void CBinaryFileStream::Close()
 	}
 }
 
+void strerror_r_improved(int err, char *str, size_t str_len)
+{
+	if (err < sys_nerr)
+		snprintf(str, str_len, "%s", sys_errlist[err]);
+	else
+		snprintf(str, str_len, "Unknown error %d", err);
+}
+
 std::string CBinaryFileStream::GetErrorMessage() const {
 	if (m_fFile)
 		return "";
@@ -57,7 +65,7 @@ std::string CBinaryFileStream::GetErrorMessage() const {
 #ifdef _MSC_VER
 	if (0 == ::strerror_s(err, errno))
 #else
-	if (0 == ::strerror_r(errno, err, std::size(err)))
+	strerror_r_improved(errno, err, std::size(err));
 #endif
 		return err;
 
