@@ -151,8 +151,9 @@ void CChunk::AssignLabels(std::map<stChunkLabel, int> &labelMap)		// // //
 		if (auto pChunkData = dynamic_cast<CChunkDataPointer *>(x.get())) {
 			if (auto it = labelMap.find(pChunkData->m_Label); it != labelMap.end())		// // //
 				pChunkData->ref = it->second;
-			else
-				DEBUG_BREAK();
+			// Ignore unrecognized file chunks (eg: j0CC writes a JSON chunk with N163 volumes)
+//			else
+//				DEBUG_BREAK();
 		}
 }
 

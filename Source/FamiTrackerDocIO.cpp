@@ -149,8 +149,9 @@ std::unique_ptr<CFamiTrackerModule> CFamiTrackerDocReader::Load() {
 		if (auto block = file_.ReadBlock()) {
 			if (auto it = FTM_READ_FUNC.find(block->GetBlockHeaderID()); it != FTM_READ_FUNC.end())
 				(this->*(it->second))(*modfile, *block);
-			else
-				DEBUG_BREAK();
+			// Ignore unrecognized file chunks (eg: j0CC writes a JSON chunk with N163 volumes)
+//			else
+//				DEBUG_BREAK();
 		}
 		else if (file_.Finished())
 			break;
