@@ -36,7 +36,9 @@
 #include "ft0cc/doc/dpcm_sample.hpp"		// // //
 #include "ft0cc/doc/groove.hpp"		// // //
 #include "Chunk.h"
+#ifndef NSF_ONLY
 #include "ChunkRenderText.h"
+#endif
 #include "ChunkRenderBinary.h"
 #include "Driver.h"
 #include "DSampleManager.h"		// // //
@@ -365,6 +367,7 @@ void CCompiler::ExportNES_PRG(CBinaryWriter &file, bool EnablePAL, bool isPRG) {
 	Print("Done, total file size: " + conv::from_int(0x8000 + (isPRG ? 0 : std::size(NES_HEADER))) + " bytes\n");
 }
 
+#ifndef NSF_ONLY
 void CCompiler::ExportBIN_ASM(CBinaryWriter &binFile, CBinaryWriter *dpcmFile, bool isASM) {
 	if (m_bBankSwitched) {
 		Print("Error: Can't write bankswitched songs!\n");
@@ -398,6 +401,7 @@ void CCompiler::ExportBIN_ASM(CBinaryWriter &binFile, CBinaryWriter *dpcmFile, b
 	Print(" * DPCM samples size: " + conv::from_int(m_iSamplesSize) + " bytes\n");
 	Print("Done\n");
 }
+#endif
 
 void CCompiler::ExportNSF(CBinaryWriter &file, int MachineType) {		// // //
 	if (!CompileData())
@@ -432,6 +436,7 @@ void CCompiler::ExportPRG(CBinaryWriter &file, bool EnablePAL) {
 	ExportNES_PRG(file, EnablePAL, true);		// // //
 }
 
+#ifndef NSF_ONLY
 void CCompiler::ExportBIN(CBinaryWriter &binFile, CBinaryWriter &dpcmFile) {
 	if (!CompileData())
 		return;
@@ -443,6 +448,7 @@ void CCompiler::ExportASM(CBinaryWriter &file) {
 		return;
 	ExportBIN_ASM(file, nullptr, true);		// // //
 }
+#endif
 
 void CCompiler::SetMetadata(std::string_view title, std::string_view artist, std::string_view copyright) {		// // //
 	title_ = conv::utf8_trim(title.substr(0, CFamiTrackerModule::METADATA_FIELD_LENGTH - 1));

@@ -67,7 +67,7 @@ set(SRCS
 	${FT0CC_ROOT}/ChipHandlerVRC7.cpp
 	${FT0CC_ROOT}/Chunk.cpp
 	${FT0CC_ROOT}/ChunkRenderBinary.cpp
-	${FT0CC_ROOT}/ChunkRenderText.cpp	# FIXME
+#	${FT0CC_ROOT}/ChunkRenderText.cpp
 #	${FT0CC_ROOT}/Clipboard.cpp
 #	${FT0CC_ROOT}/CommandLineExport.cpp
 #	${FT0CC_ROOT}/CommentsDlg.cpp
